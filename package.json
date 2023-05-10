@@ -1,0 +1,16 @@
+{
+  "name": "tsx-to-dom",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cyokodog/tsx-to-dom.git"
+  },
+  "keywords": [],
+  "author": "cyokodog <cyokodog@gmail.com> (https://www.cyokodog.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyokodog/tsx-to-dom/issues"
+  },
+  "homepage": "https://github.com/cyokodog/tsx-to-dom#readme"
+}

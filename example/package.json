@@ -1,0 +1,12 @@
+{
+  "name": "tsx-to-dom-example",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.18",
+    "esbuild-css-modules-plugin": "^2.7.1",
+    "typescript": "^5.0.4"
+  }
+}
