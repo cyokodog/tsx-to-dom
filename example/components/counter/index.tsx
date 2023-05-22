@@ -7,26 +7,16 @@ import { FormattedCount } from './FormattedCount';
 import { useCounter } from './useCounter';
 import styles from './index.module.css';
 
-export const Counter = () => {
-  const counter = useCounter({
-    render: () => {
-      document.querySelector('[data-counter-component]')?.replaceWith(init());
-    },
-  });
-
-  const init = () => {
+export const initialize = (targetElementId: string) => {
+  const render = () => {
     const dom = (
-      <div data-counter-component class={styles.container}>
-        <div>
-          <CountEdit
-            id={counter.countId}
-            count={counter.count}
-            onEdit={counter.edit}
-          />
-        </div>
-        <div>
-          <FormattedCount count={counter.count} />
-        </div>
+      <div id={targetElementId} class={styles.container}>
+        <CountEdit
+          id={counter.countId}
+          count={counter.count}
+          onEdit={counter.edit}
+        />
+        <FormattedCount count={counter.count} />
         <CounterCtrl
           countUpId={counter.countUpId}
           countDownId={counter.countDownId}
@@ -35,9 +25,9 @@ export const Counter = () => {
         />
       </div>
     );
-    counter.focusHandler = getFocusHandler(dom);
-    return dom;
+    document.querySelector('#' + targetElementId)?.replaceWith(dom);
+    return { focus: getFocusHandler(dom) }; // 再描画でフォーカスやカーソル位置が失われるのでもとに戻す
   };
-
-  return init();
+  const counter = useCounter(render);
+  render();
 };

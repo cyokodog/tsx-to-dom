@@ -8,6 +8,10 @@ require('esbuild')
     },
     bundle: true,
     outdir: 'dist',
-    plugins: [cssModulesPlugin()],
+    plugins: [
+      cssModulesPlugin({
+        localsConvention: 'camelCase',
+      }),
+    ],
   })
   .catch(() => process.exit(1));

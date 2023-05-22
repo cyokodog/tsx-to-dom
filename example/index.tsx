@@ -1,4 +1,6 @@
 import { h } from '../src/h';
-import { Counter } from './components/counter';
+import { initialize } from './components/counter';
 
-document.querySelector('#app')?.append(<Counter />);
+initialize('app');
+
+// document.querySelector('#app')?.append(<Counter />);

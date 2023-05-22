@@ -1,6 +1,7 @@
-export const useCounter = ({ render }: { render: () => void }) => {
+import { FocusHandler } from '../../../src/getFocusHandler';
+
+export const useCounter = (render: () => { focus: FocusHandler }) => {
   let count = 1000;
-  let focusHandler: any;
 
   const countDownId = 'countDown';
   const countUpId = 'countUp';
@@ -22,26 +23,20 @@ export const useCounter = ({ render }: { render: () => void }) => {
     get count() {
       return count;
     },
-    set focusHandler(v: any) {
-      focusHandler = v;
-    },
 
     down: () => {
       count--;
-      render();
-      focusHandler(`#${countDownId}`);
+      render().focus(`#${countDownId}`);
     },
 
     up: () => {
       count++;
-      render();
-      focusHandler(`#${countUpId}`);
+      render().focus(`#${countUpId}`);
     },
 
     edit: (event: any) => {
       count = event.target.value;
-      render();
-      focusHandler(`#${countId}`, event.target.selectionStart);
+      render().focus(`#${countId}`, event.target.selectionStart);
     },
   };
 };

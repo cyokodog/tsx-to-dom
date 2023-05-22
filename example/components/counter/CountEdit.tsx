@@ -10,5 +10,9 @@ export const CountEdit = ({
   count: number;
   onEdit: (event: any) => void;
 }) => {
-  return <input id={id} value={count} onInput={onEdit} class={styles.inp} />;
+  return (
+    <div>
+      <input id={id} value={count} onInput={onEdit} class={styles.inp} />
+    </div>
+  );
 };
