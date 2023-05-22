@@ -4,9 +4,9 @@ export const h = (
   elementName: JSX.ElementName,
   attributes: JSX.Attribute,
   ...children: JSX.Children
-): HTMLElement => {
+): JSX.Element => {
   if (typeof elementName === 'function') {
-    return elementName(attributes, children) as HTMLElement;
+    return elementName(attributes, children);
   }
   const el = document.createElement(elementName);
   for (const key in attributes) {
