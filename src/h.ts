@@ -1,4 +1,4 @@
-const booleanAttrs = ['disabled', 'selected', 'checked'];
+const booleanAttrs = new Set(['disabled', 'selected', 'checked']);
 
 export const h = (
   elementName: JSX.ElementName,
@@ -13,7 +13,7 @@ export const h = (
     if (/^on[A-Z][a-z]/.test(key)) {
       const eventName = key.slice(2).toLowerCase();
       el.addEventListener(eventName, attributes[key]);
-    } else if (booleanAttrs.includes(key)) {
+    } else if (booleanAttrs.has(key)) {
       if (attributes[key] === true) el.setAttribute(key, 'true');
     } else {
       el.setAttribute(key, attributes[key]);
