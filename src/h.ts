@@ -1,6 +1,10 @@
 const booleanAttrs = ['disabled', 'selected', 'checked'];
 
-export const h = (elementName: any, attributes: any, ...children: any) => {
+export const h = (
+  elementName: JSX.ElementName,
+  attributes: JSX.Attribute,
+  ...children: JSX.Children
+): HTMLElement => {
   if (typeof elementName === 'function') {
     return elementName(attributes, children) as HTMLElement;
   }
