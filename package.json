@@ -12,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/cyokodog/tsx-to-dom/issues"
   },
-  "homepage": "https://github.com/cyokodog/tsx-to-dom#readme"
+  "homepage": "https://github.com/cyokodog/tsx-to-dom#readme",
+  "scripts": {
+    "build": "npm i --prefix ./example && npm run build --prefix ./example"
+  }
 }
